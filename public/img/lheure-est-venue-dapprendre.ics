@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//udemy.com//Udemy
+METHOD:PUBLISH
+BEGIN:VEVENT
+ORGANIZER;CN="Udemy":mailto:no-reply@udemy.com
+SUMMARY:L'heure est venue d'apprendre !
+SEQUENCE:0
+DTSTAMP:20220307T114037Z
+DTSTART;TZID=Africa/Lagos:20220307T130000
+DTEND;TZID=Africa/Lagos:20220307T140000
+UID:185138
+RRULE:FREQ=DAILY;
+DESCRIPTION:Prise en main Oracle et SQL Developper (https://www.udemy.com/course/prise-en-main-oracle/learn/)
+
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:L'heure est venue d'apprendre !
+END:VALARM
+END:VEVENT
+END:VCALENDAR

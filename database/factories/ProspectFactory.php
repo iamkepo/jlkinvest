@@ -21,21 +21,27 @@ class ProspectFactory extends Factory
      */
     public function definition()
     {
+
         return [
             'designation' => $this->faker->unique()->name(),
             'email' => $this->faker->unique()->email(),
-            'tel' => $this->faker->e164PhoneNumber(),
+            'telephone1' => $this->faker->e164PhoneNumber(),
+            'telephone2' => $this->faker->e164PhoneNumber(),
             'csp' =>  $this->faker->randomElement($array = array ('Particulier','Société')),
             'pays' => $this->faker->country(),
-            'ville'=> $this->faker->city(),
-            'zip'=>   'BP'.$this->faker->buildingNumber(),
-            'secteurAct' => $this->faker->word(),
+            'ville' => $this->faker->city(),
+            'rue' => $this->faker->city(),
+            'zipcode' => $this->faker->city(),
             'profession' => $this->faker->jobTitle(),
-            'ppe' => $this->faker->randomElement([1,0]),
-            'originProspect' => $this->faker->text($maxNbChars = 200),
+            'secteurActivite' => $this->faker->word(),
+            'ppe' => $this->faker->boolean(),
+            'societe' => $this->faker->company(),
+            'pieceIdentite' => $this->faker->randomElement(['CNI','PASSEPORT']),
+            'numerosPieceIdentite' => $this->faker->swiftBicNumber,
             'presentation' => $this->faker->text($maxNbChars = 200),
+            'originProspect' => $this->faker->text($maxNbChars = 200),
             'potentielRelation' => $this->faker->text($maxNbChars = 200),
-            'status' => $this->faker->randomElement([1,0]),
+            'clientAt' => $this->faker->dateTime(),
 
         ];
     }

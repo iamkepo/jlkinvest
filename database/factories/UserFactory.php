@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use Illuminate\Support\Arr;
 
 class UserFactory extends Factory
 {
@@ -22,17 +23,22 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        // $array = [1, 2, 3, 4, 5];
+
+        // $random = Arr::random($array);
+
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
-            'role_name'=> 'commerciale',
+            'sex' => $this->faker->randomElement(['M','F']),
+            'telephone1' => $this->faker->e164PhoneNumber(),
+            'telephone2' => $this->faker->e164PhoneNumber(),
             'pays' => $this->faker->country(),
-            'ville'=> $this->faker->city(),
-            'zip'=>   'BP'.$this->faker->buildingNumber(),
-            'status' => $this->faker->randomElement([1,0]),
-            'phone_number' => $this->faker->unique()->e164PhoneNumber(),
+            'pieceIdentite' => $this->faker->randomElement(['CNI','Passport']),
+            'numerosPieceIdentite' => $this->faker->swiftBicNumber,
+            'photo' => $this->faker->imageUrl(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
+            'role_id' => $this->faker->randomElement([1,2]),
         ];
     }
 
