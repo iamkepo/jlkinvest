@@ -61,12 +61,12 @@ class DatabaseSeeder extends Seeder
                 'categories_produits_id' => 2
             ]
         ]);
-        $user = User::factory(20)->create()->each( function ($user){
-            Prospect::factory(rand(1,100))->create([
+        $user = User::factory(10)->create()->each( function ($user){
+            Prospect::factory(rand(1,10))->create([
                     'user_id' => $user->id,
                 ])->each(function($prospect) {
                     Activite::factory(rand(1,10))->create([
-                        'reference' => 'ref_'.$prospect->user->id.'_'.$prospect->id.'_'.$this->faker->unique(),
+                        'reference' => 'ref_'.$prospect->user->id.'_'.$prospect->id.'_'.now(),
                         'prospect_id' => $prospect->id,
                         'user_id' => $prospect->user->id,
                     ]);
