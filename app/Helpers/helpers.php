@@ -16,3 +16,17 @@ function setMenuActive($route){
 function lastIdActivities(){
    return Activite::latest()->first()->id;
 }
+
+function alterKeyJson($json, $oldKey, $newKey)
+{
+    $array = json_decode($json, true);
+
+    foreach($array as &$value) {
+        if (isset($value[$oldKey])) {
+            $value[$newKey] = $value[$oldKey];
+            unset($value[$oldKey]);
+        }
+    }
+
+    return json_encode($array);
+}

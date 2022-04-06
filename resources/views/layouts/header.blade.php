@@ -26,7 +26,7 @@
         .active-nav-link { background: #1947ee; }
         .nav-item:hover { background: #1947ee; }
         .account-link:hover { background: #3d68ff; }
-        .elipsis{
+        .elipsis, .fc-event-title{
             text-overflow: ellipsis;
             white-space: nowrap;
             overflow: hidden;

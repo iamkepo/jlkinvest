@@ -21,6 +21,7 @@ class CreateActivitesTable extends Migration
             $table->string('reference');
             $table->dateTime('dateEcheance');
             $table->text('resume')->nullable();
+            $table->text('title')->nullable();
             $table->string('observation')->nullable();
             $table->string('besoinDuClient')->nullable();
             $table->double('objectifDeCollecte')->nullable();

@@ -67,15 +67,14 @@ class Activites extends Component
     public function AddActivite(){
         //Vérifiez que les information envoyées par l'Activité s sont correctes
         $validationAttributes = $this->validate();
-        $validationAttributes['newActivite']['photo']="https://via.placeholder.com/640x480.png/005588?text=aliquam";
-        $validationAttributes['newActivite']['password']="$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi";
-
+        $validationAttributes['newActivite']['title']=' '.$validationAttributes['newActivite']['typeActivity'].' avec '.$validationAttributes['newActivite']['prospect_id'];
+        dd($validationAttributes['newActivite']['title']);
         //Ajoutez un nouvelle Activité
         Activite::create($validationAttributes['newActivite']);
 
         $this->newActivite = [];
 
-        $this->dispatchBrowserEvent("showSuccessMessage",["message" =>"Activité  créé avec success!"]);
+        $this->dispatchBrowserEvent("showSuccessMessage",["message" =>"Activité  créé avec success!uuuu"]);
     }
 
     public function comfirmeDelete($name, $id){

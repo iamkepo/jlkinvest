@@ -21,6 +21,7 @@ class Prospects extends Component
     public $editProspect = [];
     public $newActivite = [];
 
+
     public function rules(){
       if ($this->currentPage === PAGEEDITFORM) {
         return [
@@ -134,11 +135,12 @@ class Prospects extends Component
        $this->newActivite['statut'] = Auth::user()->id;
        $this->newActivite['reference'] = "ref_".Auth::user()->id."_".$this->editProspect['id']."_".((lastIdActivities()) + 1);
        $this->newActivite['statut'] = "en cours";
+       $this->newActivite['title']= $this->editProspect['designation'];
 
        Activite::create($this->newActivite);
        $this->newActivite = [];
 
-    $this->dispatchBrowserEvent("showSuccessMessage",["message" =>"Activite créé avec success!"]);
+       $this->dispatchBrowserEvent("showSuccessMessage",["message" =>"Activite créé avec success!"]);
     }
 
 }
